@@ -1,0 +1,106 @@
+--BROUGHT TO YOU BY RSCRIPTS.NET!--
+
+
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+
+local win = DiscordLib:Window("discord library")
+
+local serv = win:Server("Preview", "")
+
+local btns = serv:Channel("Buttons")
+
+btns:Button("Ball Expander", function()
+DiscordLib:Notification("Notification", "Ball is know big", "Got it!")
+    game:GetService("Workspace").Basketball.Mesh.Scale = Vector3.new(1,1,1)
+end)
+
+btns:Seperator()
+
+btns:Button("AimBot", function()
+DiscordLib:Notification("Notification", "You Have Aimbot!", "Got it!")
+function onKeyPress(inputObject, gameProcessedEvent)
+    if inputObject.KeyCode == Enum.KeyCode.R then
+    game.ReplicatedStorage.Ball.StartShooting:FireServer()
+    wait(0.5)
+    game.ReplicatedStorage.Ball.EndShooting:InvokeServer(true,"Perfect")
+    end
+    end
+    game:GetService("UserInputService").InputBegan:connect(onKeyPress)
+end)
+
+btns:Seperator()
+
+btns:Button("Annoy", function()
+    DiscordLib:Notification("Notification", "Activated Annoy, You can Unactive this.", "Got it!")
+    local Basketball = game:GetService("Workspace").Basketball
+    if Basketball then
+        while wait() do
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = Basketball.CFrame
+        end
+    end
+end)
+
+btns:Seperator()
+
+btns:Button("InfStamina",function()
+    DiscordLib:Notification("Notification", "You Know Have Inf Stamina", "Got it!")
+    while wait() do
+        game.Players.LocalPlayer.PlayerScripts.Events.Player.Stamina.Stamina.Value = 1000000000000
+    end
+end)
+
+btns:Seperator()
+
+btns:Button("Fly",function()
+    DiscordLib:Notification("Notification", "You Enabled Flying! Press E to Enable and Disable!", "Got it!")
+    loadstring(game:HttpGet("https://pastebin.com/raw/7rXZ9VNc", true))()
+end)
+
+
+
+local tgls = serv:Channel("Toggles")
+
+
+local sldrs = serv:Channel("Sliders")
+
+
+
+
+
+local drops = serv:Channel("Dropdowns")
+
+
+
+
+drops:Button("Clear", function()
+drop:Clear()
+end)
+
+
+
+local clrs = serv:Channel("Colorpickers")
+
+
+
+local textbs = serv:Channel("Textboxes")
+
+
+
+local lbls = serv:Channel("Labels")
+
+lbls:Label("This is just a label.")
+
+local bnds = serv:Channel("Binds")
+
+
+
+
+
+bnds:Bind("LayUp AnyWhere", Enum.KeyCode.L, function()
+    game:GetService("ReplicatedStorage").Ball.Layup:FireServer()
+end)
+
+serv:Channel("By Gone#7635")
+
+
+win:Server("Main", "http://www.roblox.com/asset/?id=6031075938")
